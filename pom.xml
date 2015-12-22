@@ -17,6 +17,16 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>com.sparkjava</groupId>
+			<artifactId>spark-core</artifactId>
+			<version>2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sparkjava</groupId>
+			<artifactId>spark-template-freemarker</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>3.8.1</version>
@@ -54,9 +64,36 @@
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>de.dailab.plistacontest.client.Client</mainClass>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.4</version>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
@@ -65,21 +102,10 @@
 			<id>repo1</id>
 			<url>http://repo1.maven.org/maven2</url>
 		</repository>
-		<!--  repository>
-			<id>repo2</id>
-			<url>http://download.java.net/maven/2</url>
-		</repository>
-		<repository>
-			<id>repo3</id>
-			<url>http://repository.jboss.com/maven2</url>
-		</repository>
-		<repository>
-			<id>repo4</id>
-			<url>http://maven.apache.org/</url>
-		</repository>
-		<repository>
-			<id>repo5</id>
-			<url>http://repo2.maven.org/maven2</url>
-		</repository -->
+		<!-- repository> <id>repo2</id> <url>http://download.java.net/maven/2</url> 
+			</repository> <repository> <id>repo3</id> <url>http://repository.jboss.com/maven2</url> 
+			</repository> <repository> <id>repo4</id> <url>http://maven.apache.org/</url> 
+			</repository> <repository> <id>repo5</id> <url>http://repo2.maven.org/maven2</url> 
+			</repository -->
 	</repositories>
 </project>
