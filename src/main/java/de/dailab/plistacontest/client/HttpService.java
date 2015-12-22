@@ -18,7 +18,7 @@ public class HttpService {
 	/**
      * Define the default logger
      */
-    private final static Logger logger = LoggerFactory.getLogger(ContestHandler.class);
+    private final static Logger logger = LoggerFactory.getLogger(HttpService.class);
 
     /**
      * here we store all relevant data about items.
