@@ -12,7 +12,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<jettyVersion>7.6.4.v20120524</jettyVersion>
+		<!-- <jettyVersion>7.6.4.v20120524</jettyVersion>  -->
 	</properties>
 
 	<dependencies>
@@ -32,11 +32,11 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-server</artifactId>
 			<version>${jettyVersion}</version>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>com.googlecode.json-simple</groupId>
 			<artifactId>json-simple</artifactId>
