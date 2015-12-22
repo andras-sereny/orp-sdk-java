@@ -27,6 +27,7 @@ public class HttpService {
     
 
 	public Object servePost(Request request, Response response) {
+		String responseText = "";
 		if (request.contentLength() <= 0) {
 			System.out.println("[INFO] Initial Message with no content received." );
 			response(response, request, null, false);
@@ -41,20 +42,19 @@ public class HttpService {
 //				bodyMessage = URLDecoder.decode(bodyMessage, "utf-8");
 //			}
 
-			String responseText = null;
 			responseText = handleMessage(typeMessage, bodyMessage);
 			response(response, request, responseText, true);
 		}
-		return response;
+		return responseText;
 	}
 
-	private Response response(Response response, Request request, String text, boolean b) {
+	private String response(Response response, Request request, String text, boolean b) {
 		response.header("Content-Type", "text/html;charset=utf-8");
 		response.status(HttpServletResponse.SC_OK);
 		if (text != null && b) {
 			response.body(text);
 		}
-		return response;
+		return text;
 	}
 	
     private String handleMessage(final String messageType, final String _jsonMessageBody) {
