@@ -48,12 +48,13 @@ public class HttpService {
 		return response;
 	}
 
-	private void response(Response response, Request request, String text, boolean b) {
+	private Response response(Response response, Request request, String text, boolean b) {
 		response.header("Content-Type", "text/html;charset=utf-8");
 		response.status(HttpServletResponse.SC_OK);
 		if (text != null && b) {
 			response.body(text);
 		}
+		return response;
 	}
 	
     private String handleMessage(final String messageType, final String _jsonMessageBody) {
@@ -165,8 +166,7 @@ public class HttpService {
 	}
 
 	public Object serveGet(Request request, Response response) {
-		response(response, request, "Server up. Visit <h3><a href=\"http://www.gravityrd.com\">the Gravity page</a></h3>", true);
-		return null;
+		return response(response, request, "Server up. Visit <h3><a href=\"http://www.gravityrd.com\">the Gravity page</a></h3>", true);
 	}
 
 }
